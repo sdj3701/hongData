@@ -40,8 +40,8 @@ void intSwap(int &a,int &b)
 
 int main()
 {
-    int a = 3;
-    int b = 2;
+//    int a = 3;
+//    int b = 2;
     
     //swap
     {
