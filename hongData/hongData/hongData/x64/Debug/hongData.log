@@ -1,2 +1,3 @@
-﻿  InsertionSort.cpp
-  hongData.vcxproj -> D:\workspace\hongData\hongData\hongData\x64\Debug\hongData.exe
+﻿  SequentialSort.cpp
+C:\work\hongData\hongData\hongData\hongData\SequentialSort.cpp(72): warning C4715: 'SequentialSeratch': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  hongData.vcxproj -> C:\work\hongData\hongData\hongData\x64\Debug\hongData.exe
