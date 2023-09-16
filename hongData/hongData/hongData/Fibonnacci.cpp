@@ -40,7 +40,10 @@ int Fibonnacci(int n)
 	{
 		int fn = 0;
 
-		
+		static int arr[15] = { 0,1 };
+		arr[n] = arr[n - 1] + arr[n - 2];
+
+		fn = arr[n];
 
 		return fn;
 	}
@@ -48,6 +51,12 @@ int Fibonnacci(int n)
 
 int RecurFibonnacci(int n)
 {
-
-	return 0;
+	if (n == 0)
+		return 0;
+	else if (n == 1)
+		return 1;
+	else
+	{
+		return RecurFibonnacci(n - 1) + RecurFibonnacci(n - 2);
+	}
 }
