@@ -16,18 +16,15 @@ void RecurPermutations(char* arr, int left, int right)
 	}
 	else
 	{
-		Swap(arr[left + b], arr[left]);
-		while (left != right - a)
+		for (int i = left; i <= right; i++)
 		{
-			for (int i = left; i <= right;i++)
-				cout << arr[i] << " ";
-			cout << endl;
-			Swap(arr[right - a], arr[right]);
-			a++;
+			Swap(arr[left], arr[i]);
+
+			RecurPermutations(arr, left + 1, right);
+
+			Swap(arr[left], arr[i]);
+
 		}
-		a = 0;
-		b++;
-		RecurPermutations(arr, left + b, right);
 	}
 }
 
