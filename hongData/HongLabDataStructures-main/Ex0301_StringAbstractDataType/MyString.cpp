@@ -13,10 +13,14 @@ MyString::MyString()
 MyString::MyString(const char* init)
 {
 	// 크기(size_) 결정
-
+	size_ = sizeof(init)/ sizeof(char);
+	
 	// 메모리 할당
+	str_ = new char;
 
 	// 데이터 복사
+	for(int i =0;i<size_;i++)
+		str_[i] = init[i];
 }
 
 // MyString의 다른 instance로부터 초기화
