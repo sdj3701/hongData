@@ -112,16 +112,15 @@ MyString MyString::Insert(MyString t, int start)
 
 	MyString temp;
 	
-	Resize(t.size_);
-	temp.str_ = new char[temp.size_];
-	temp.size_ = size_;
+	temp.size_ = this->size_ + t.size_;
+	temp.str_ = new char[temp.size_ + 1];
 
 	// TODO:t가 입력할 글자 start는 자리
-	for (int i = 0;i < size_;i++)
+	for (int i = 0;i < size_ +1;i++)
 	{
 		if (i == start)
 		{
-			for (int j = 0;j < t.size_;j++)
+			for (int j = 0;j < t.size_+1;j++)
 			{
 				temp.str_[i + j] = t.str_[j];
 			}
@@ -130,7 +129,6 @@ MyString MyString::Insert(MyString t, int start)
 		else
 			temp.str_[i] = str_[i];
 	}
-
 
 	return temp;
 }
