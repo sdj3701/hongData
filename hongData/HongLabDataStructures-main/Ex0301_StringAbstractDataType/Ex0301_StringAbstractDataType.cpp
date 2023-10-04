@@ -51,7 +51,6 @@ int main()
 	// Substr()
 	{
 		MyString str("ABCDEFGHIJ");
-
 		str.Substr(3, 4).Print();
 	}
 

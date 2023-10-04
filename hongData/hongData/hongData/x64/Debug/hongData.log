@@ -1,2 +1,12 @@
-﻿  MyString.cpp
-  hongData.vcxproj -> D:\workspace\hongData\hongData\hongData\x64\Debug\hongData.exe
+﻿StringDataType.obj : error LNK2005: main이(가) RecurBinarySearch.obj에 이미 정의되어 있습니다.
+StringDataType.obj : error LNK2019: "public: __cdecl MyString::MyString(char const *)" (??0MyString@@QEAA@PEBD@Z)main 함수에서 참조되는 확인할 수 없는 외부 기호
+StringDataType.obj : error LNK2019: "public: __cdecl MyString::MyString(class MyString const &)" (??0MyString@@QEAA@AEBV0@@Z)main 함수에서 참조되는 확인할 수 없는 외부 기호
+StringDataType.obj : error LNK2019: "public: __cdecl MyString::~MyString(void)" (??1MyString@@QEAA@XZ)main 함수에서 참조되는 확인할 수 없는 외부 기호
+StringDataType.obj : error LNK2019: "public: bool __cdecl MyString::IsEqual(class MyString const &)" (?IsEqual@MyString@@QEAA_NAEBV1@@Z)main 함수에서 참조되는 확인할 수 없는 외부 기호
+StringDataType.obj : error LNK2019: "public: int __cdecl MyString::Length(void)" (?Length@MyString@@QEAAHXZ)main 함수에서 참조되는 확인할 수 없는 외부 기호
+StringDataType.obj : error LNK2019: "public: class MyString __cdecl MyString::Substr(int,int)" (?Substr@MyString@@QEAA?AV1@HH@Z)main 함수에서 참조되는 확인할 수 없는 외부 기호
+StringDataType.obj : error LNK2019: "public: class MyString __cdecl MyString::Concat(class MyString)" (?Concat@MyString@@QEAA?AV1@V1@@Z)main 함수에서 참조되는 확인할 수 없는 외부 기호
+StringDataType.obj : error LNK2019: "public: class MyString __cdecl MyString::Insert(class MyString,int)" (?Insert@MyString@@QEAA?AV1@V1@H@Z)main 함수에서 참조되는 확인할 수 없는 외부 기호
+StringDataType.obj : error LNK2019: "public: int __cdecl MyString::Find(class MyString)" (?Find@MyString@@QEAAHV1@@Z)main 함수에서 참조되는 확인할 수 없는 외부 기호
+StringDataType.obj : error LNK2019: "public: void __cdecl MyString::Print(void)" (?Print@MyString@@QEAAXXZ)main 함수에서 참조되는 확인할 수 없는 외부 기호
+D:\workspace\hongData\hongData\hongData\x64\Debug\hongData.exe : fatal error LNK1120: 10개의 확인할 수 없는 외부 참조입니다.

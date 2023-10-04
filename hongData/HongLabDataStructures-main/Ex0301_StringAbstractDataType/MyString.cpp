@@ -13,14 +13,22 @@ MyString::MyString()
 MyString::MyString(const char* init)
 {
 	// 크기(size_) 결정
-	size_ = sizeof(init)/ sizeof(char);
-	
+	while (true)
+	{
+		if (init[size_] != '\0')
+			size_++;
+		else
+			break;
+	}
 	// 메모리 할당
-	str_ = new char;
+	str_ = new char[size_];
 
 	// 데이터 복사
-	for(int i =0;i<size_;i++)
+	for (int i = 0;i < size_;i++)
+	{
 		str_[i] = init[i];
+	}
+	
 }
 
 // MyString의 다른 instance로부터 초기화
@@ -30,10 +38,19 @@ MyString::MyString(const MyString& str)
 	// 소멸시 오류 발생
 	// 여기서는 새로 메모리를 할당 받아서 복사
 
+	str_ = str.str_;
+	size_ = str.size_;
+	str_ = new char[str.size_];
+	for (int i = 0; i < size_;i++)
+	{
+		str_[i] = str.str_[i];
+	}
+
 }
 
 MyString::~MyString()
 {
+	if(str_ != nullptr) delete[] str_;
 	// 메모리 해제
 }
 
@@ -45,8 +62,14 @@ bool MyString::IsEmpty()
 bool MyString::IsEqual(const MyString& str) // 편의상 참조& 사용
 {
 	// 힌트: str.str_, str.size_ 가능
+	int count = 0;
+	for (int i = 0;i < size_;i++)
+	{
+		if (str.str_[i] == str_[i])
+			count++;
+	}
 
-	return false;
+	return count == str.size_ ? true : false;
 }
 
 int MyString::Length()
@@ -57,6 +80,7 @@ int MyString::Length()
 void MyString::Resize(int new_size)
 {
 	// 메모리 재할당과 원래 갖고 있던 내용 복사
+	size_ += new_size;
 }
 
 // 인덱스 start위치의 글자부터 num개의 글자로 새로운 문자열 만들기
@@ -87,15 +111,46 @@ MyString MyString::Insert(MyString t, int start)
 	assert(start <= this->size_);
 
 	MyString temp;
+	
+	Resize(t.size_);
+	temp.str_ = new char[temp.size_];
+	temp.size_ = size_;
 
-	// TODO:
+	// TODO:t가 입력할 글자 start는 자리
+	for (int i = 0;i < size_;i++)
+	{
+		if (i == start)
+		{
+			for (int j = 0;j < t.size_;j++)
+			{
+				temp.str_[i + j] = t.str_[j];
+			}
+			i += start;
+		}
+		else
+			temp.str_[i] = str_[i];
+	}
+
 
 	return temp;
 }
 
 int MyString::Find(MyString pat)
 {
-	//TODO:
+	//TODO: 같은 글자가 있으면 몇번째 자리인지 알려줘야함
+	for (int i = 0; i < size_;i++)
+	{
+		int count = 0;
+		for (int j = 0;j < pat.size_;j++)
+		{
+			if (str_[i + j] == pat.str_[j])
+			{
+				count++;
+			}
+		}
+		if (count == pat.size_)
+			return i;
+	}
 
 	return -1;
 }
