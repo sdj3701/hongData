@@ -38,9 +38,8 @@ MyString::MyString(const MyString& str)
 	// 소멸시 오류 발생
 	// 여기서는 새로 메모리를 할당 받아서 복사
 
-	str_ = str.str_;
 	size_ = str.size_;
-	str_ = new char[str.size_];
+	str_ = new char[size_];
 	for (int i = 0; i < size_;i++)
 	{
 		str_[i] = str.str_[i];
@@ -81,6 +80,18 @@ void MyString::Resize(int new_size)
 {
 	// 메모리 재할당과 원래 갖고 있던 내용 복사
 	size_ += new_size;
+
+	if (new_size != size_)
+	{
+		char* new_str = new char[new_size];
+
+		memcpy(new_str, str_, size_);
+
+		delete[] str_;
+		str_ = new_str;
+		size_ = new_size;
+	}
+
 }
 
 // 인덱스 start위치의 글자부터 num개의 글자로 새로운 문자열 만들기
@@ -92,6 +103,10 @@ MyString MyString::Substr(int start, int num)
 	MyString temp;
 
 	// TODO:
+	temp.Resize(num);
+
+	for (int i = 0; i < num; i++)
+		temp.str_[i] = this->str_[start + i];
 
 	return temp;
 }
@@ -99,7 +114,10 @@ MyString MyString::Substr(int start, int num)
 MyString MyString::Concat(MyString app_str)
 {
 	MyString temp;
+	temp.Resize(this->size_ + app_str.size_);
 
+	memcpy(temp.str_, this->str_, this->size_);
+	memcpy(&temp.str_[this->size_], app_str.str_, app_str.size_);
 	// TODO: 
 
 	return temp;
@@ -112,26 +130,17 @@ MyString MyString::Insert(MyString t, int start)
 
 	MyString temp;
 	
-	temp.size_ = this->size_ + t.size_;
-	temp.str_ = new char[temp.size_ + 1];
-	cout << str_;
-	cout << t.str_;
-	cout << temp.size_;
+	temp.Resize(size_ + t.size_);
 
 	// TODO:t가 입력할 글자 start는 자리
-	for (int i = 0;i < size_ +1;i++)
-	{
-		if (i == start)
-		{
-			for (int j = 0;j < t.size_+1;j++)
-			{
-				temp.str_[i + j] = t.str_[j];
-			}
-			i += start;
-		}
-		else
-			temp.str_[i] = str_[i];
-	}
+	for (int i = 0; i < start; i++)
+		temp.str_[i] = str_[i];
+
+	for (int i = start; i < start + t.size_; i++)
+		temp.str_[i] = t.str_[i - start];
+
+	for (int i = start + t.size_; i < size_ + t.size_; i++)
+		temp.str_[i] = str_[i - t.size_];
 
 	return temp;
 }
