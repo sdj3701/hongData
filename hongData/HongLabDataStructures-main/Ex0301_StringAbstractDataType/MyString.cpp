@@ -114,6 +114,9 @@ MyString MyString::Insert(MyString t, int start)
 	
 	temp.size_ = this->size_ + t.size_;
 	temp.str_ = new char[temp.size_ + 1];
+	cout << str_;
+	cout << t.str_;
+	cout << temp.size_;
 
 	// TODO:t가 입력할 글자 start는 자리
 	for (int i = 0;i < size_ +1;i++)
