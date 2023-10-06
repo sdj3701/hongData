@@ -130,17 +130,44 @@ MyString MyString::Insert(MyString t, int start)
 
 	MyString temp;
 	
-	temp.Resize(size_ + t.size_);
+	temp.size_ = size_ + t.size_;
+	temp.str_ = new char[temp.size_];
+
+	bool check = false;
+
+	for (int i = 0;i < temp.size_;i++)
+	{
+		if (i == start)
+		{
+			for (int j = 0;j < t.size_;j++)
+				temp.str_[i + j] = t.str_[j];
+			i += t.size_- 1;
+			check = true;
+		}
+		else
+		{
+			if (i - (t.size_ +1)< 0 && check == true)
+			{
+				temp.str_[i] = str_[i - t.size_];
+			}
+			else
+			{
+				temp.str_[i] = str_[i];
+			}
+		}
+	}
+
+	//temp.Resize(size_ + t.size_);
 
 	// TODO:t가 입력할 글자 start는 자리
-	for (int i = 0; i < start; i++)
+	/*for (int i = 0; i < start; i++)
 		temp.str_[i] = str_[i];
 
 	for (int i = start; i < start + t.size_; i++)
 		temp.str_[i] = t.str_[i - start];
 
 	for (int i = start + t.size_; i < size_ + t.size_; i++)
-		temp.str_[i] = str_[i - t.size_];
+		temp.str_[i] = str_[i - t.size_];*/
 
 	return temp;
 }

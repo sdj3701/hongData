@@ -56,7 +56,13 @@ Polynomial Polynomial::Add(const Polynomial& poly)
 	Polynomial temp(this->MaxDegree());
 
 	// TODO:
-
+	if (capacity_ >= poly.capacity_)
+	{
+		for (int i = 0; i < capacity_;i++)
+		{
+			temp.coeffs_[i] = coeffs_[i] + poly.coeffs_[i];
+		}
+	}
 	return temp;
 }
 
@@ -69,7 +75,16 @@ Polynomial Polynomial::Mult(const Polynomial& poly)
 	Polynomial temp(this->MaxDegree());
 
 	// TODO: Ç×»ó ÀÎµ¦½Ì ¿À·ù Á¶½É
-
+	for (int i = 0;i < capacity_;i++)
+	{
+		for (int j = 0;j < poly.capacity_;j++)
+		{
+			if (i + j < capacity_)
+				temp.coeffs_[i + j] += coeffs_[i] * poly.coeffs_[j];
+			else
+				break;
+		}
+	}
 	return temp;
 }
 
@@ -82,7 +97,7 @@ float Polynomial::Eval(float x)
 
 	for (int i = 1; i < capacity_; i++)
 	{
-		temp += (coeffs_[i] * pow(i, x));
+		temp += (coeffs_[i] * pow(x, i));
 	}
 	temp += coeffs_[0];
 
