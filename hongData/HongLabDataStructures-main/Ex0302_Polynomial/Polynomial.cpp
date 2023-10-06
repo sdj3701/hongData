@@ -45,6 +45,8 @@ void Polynomial::NewTerm(const float coef, const int exp)
 	assert(exp < capacity_); // exp가 너무 크면 resize 하도록 구현할 수도 있음
 
 	// TODO: 쉬워요
+	coeffs_[exp] = coef;
+
 }
 
 Polynomial Polynomial::Add(const Polynomial& poly)
@@ -77,6 +79,12 @@ float Polynomial::Eval(float x)
 
 	// TODO:
 	// 힌트 std::powf(2.0f, float(3)); // 2.0f^3.0f = 8.0f (2.0f의 3.0f 제곱)
+
+	for (int i = 1; i < capacity_; i++)
+	{
+		temp += (coeffs_[i] * pow(i, x));
+	}
+	temp += coeffs_[0];
 
 	return temp;
 }
