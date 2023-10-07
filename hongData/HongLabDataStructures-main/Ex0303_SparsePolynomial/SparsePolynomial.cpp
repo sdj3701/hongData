@@ -55,8 +55,24 @@ SparsePolynomial SparsePolynomial::Add(const SparsePolynomial& poly)
 	// - 4. Polynomial을 SparsePolynomial로 변환한다.
 
 	SparsePolynomial temp;
+	// TODO: 여기서 다른 자릿수 이면은 빼야 함
+	for (int i = 0;i < capacity_;i++)
+	{
+		int count = 0;
+		if (terms_[i].exp == poly.terms_[i].exp)
+			temp.terms_[i].coef = terms_[i].coef + poly.terms_[i].coef;
+		else if (terms_[i].exp > poly.terms_[i].exp)
+		{
+			temp.terms_[i].coef = terms_[i].coef;
+			count++;
+		}
+		else if (terms_[i].exp < poly.terms_[i].exp)
+		{
+			temp.terms_[i].coef = poly.terms_[i].coef;
+			count++;
+		}
 
-	// TODO:
+	}
 
 	return temp;
 }
