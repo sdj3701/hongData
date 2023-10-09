@@ -40,6 +40,12 @@ float SparsePolynomial::Eval(float x)
 
 	// TODO:
 
+	for (int i = 1; i < num_terms_; i++)
+	{
+		temp += (terms_[i].coef * pow(x,(float)terms_[i].exp));
+	}
+	temp += terms_[0].coef;
+
 	return temp;
 }
 
@@ -55,23 +61,24 @@ SparsePolynomial SparsePolynomial::Add(const SparsePolynomial& poly)
 	// - 4. Polynomial을 SparsePolynomial로 변환한다.
 
 	SparsePolynomial temp;
-	// TODO: 여기서 다른 자릿수 이면은 빼야 함
+	// TODO: coef = 값 exp = 제곱근
+
 	for (int i = 0;i < capacity_;i++)
 	{
 		int count = 0;
+		bool check = false;
+		float sum = 0;
 		if (terms_[i].exp == poly.terms_[i].exp)
-			temp.terms_[i].coef = terms_[i].coef + poly.terms_[i].coef;
+			sum = terms_[i].coef + poly.terms_[i].coef;
 		else if (terms_[i].exp > poly.terms_[i].exp)
 		{
-			temp.terms_[i].coef = terms_[i].coef;
-			count++;
+			sum = poly.terms_[i].coef;
 		}
 		else if (terms_[i].exp < poly.terms_[i].exp)
 		{
-			temp.terms_[i].coef = poly.terms_[i].coef;
-			count++;
+			sum = terms_[i].coef;
 		}
-
+		terms_[i].coef = sum;
 	}
 
 	return temp;
