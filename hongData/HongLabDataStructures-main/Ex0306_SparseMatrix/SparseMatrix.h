@@ -30,5 +30,5 @@ private:
 	int num_rows_ = 0; // 최대 rows 갯수
 	int num_cols_ = 0; // 최대 columns 갯수
 	int capacity_ = 0;
-	int num_terms_ = 0;
+	int num_terms_ = 0; //현제 terms가 몇개 인지 확인 하기 위해서
 };
