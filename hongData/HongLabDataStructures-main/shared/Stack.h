@@ -26,15 +26,15 @@ public:
 		stack_ = new_stack;
 		capacity_ = new_capacity;
 	}
-	 
+	
 	bool IsEmpty() const
 	{
-		return false; // TODO:
+		return top_ == -1; // TODO:
 	}
 
 	int Size() const
 	{
-		return capacity_; //TODO:
+		return top_ + 1; //TODO:
 	}
 
 	void Print()
@@ -57,20 +57,20 @@ public:
 	// Insert item into the TOP of the stack
 	void Push(const T& item)
 	{
-		stack_[capacity_ - 1] = item;
-		capacity_++;
-		Resize(capacity_);
+		if(top_ == capacity_ -1)
+			Resize(capacity_ * 2);
 
+		stack_[++top_] = item;
 		// TODO: 필요하면 리사이즈 
-
 		// TODO:
 	}
-
 	// Delete the TOP element of the stack
+
 	void Pop()
 	{
 		assert(!IsEmpty());
 
+		top_--;
 		// TODO:
 	}
 
