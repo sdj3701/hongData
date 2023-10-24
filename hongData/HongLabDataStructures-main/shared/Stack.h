@@ -51,7 +51,7 @@ public:
 	{
 		assert(!IsEmpty());
 
-		return stack_[top_];
+		return stack_[capacity_ + top_ -1];
 	}
 
 	// Insert item into the TOP of the stack
