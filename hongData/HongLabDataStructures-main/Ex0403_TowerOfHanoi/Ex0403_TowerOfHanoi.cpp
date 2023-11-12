@@ -45,7 +45,16 @@ void MoveDisk(int from, int to)
 
 void RecurMoveDisks(int n, int from, int temp, int to)
 {
-	// TODO:
+	// TODO: from은 있던 자리 to 옮길 자리 temp는 중간 단계
+
+	//처음에 0 -> 2 로 이동 다시  0 -> 1 /2->1 / 0->2 / (1->0 / 1->2)/
+
+	RecurMoveDisks(n - 1, from, to, temp);  
+
+	if (tower[from].Top() > tower[to].Top())
+		MoveDisk(from, to);
+
+	RecurMoveDisks(n - 1, from, temp, to);
 }
 
 int main()

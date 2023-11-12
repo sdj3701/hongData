@@ -16,6 +16,7 @@ int main()
 		q.Enqueue(i);
 	q.Print();
 
+
 	// 마지막 한 명이 남을 때까지 반복
 	{
 		// k-1 명은 맨 앞에서 뒤로 보내기
@@ -29,3 +30,4 @@ int main()
 
 	return 0;
 }
+// 

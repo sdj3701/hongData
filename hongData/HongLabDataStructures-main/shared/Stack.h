@@ -41,7 +41,7 @@ public:
 	{
 		using namespace std;
 
-		for (int i = 0; i < Size(); i++) // Size() 사용
+		for (int i = 0; i < Size()-1; i++) // Size() 사용
 			cout << stack_[i] << " ";
 		cout << endl;
 	}
@@ -51,7 +51,7 @@ public:
 	{
 		assert(!IsEmpty());
 
-		return stack_[capacity_ + top_ -1];
+		return stack_[capacity_ + top_ -2];
 	}
 
 	// Insert item into the TOP of the stack
