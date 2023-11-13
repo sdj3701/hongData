@@ -14,8 +14,22 @@ int main()
 	// 처음에 n명 추가 (1, 2, ..., n)
 	for (int i = 1; i <= n; i++)
 		q.Enqueue(i);
-	q.Print();
+	while (q.Size() > 1)
+	{
+		q.Print();
 
+		for (int i = 0; i < k - 1; i++)
+		{
+			int temp = q.Front();
+			q.Dequeue();
+			q.Enqueue(temp);
+		}
+		q.Print();
+		cout << "Executed " << q.Front() << endl;
+		q.Dequeue();
+	}
+	
+	cout << "Survior: " << q.Front() << endl;
 
 	// 마지막 한 명이 남을 때까지 반복
 	{
