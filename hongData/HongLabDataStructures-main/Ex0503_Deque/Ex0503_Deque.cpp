@@ -7,7 +7,7 @@ int main()
 	// Double Ended Queue (µ¦)
 	Deque<char> d(8);
 
-	d.SetDebugFlag(true);
+	d.SetDebugFlag(false);
 
 	d.Print();
 
