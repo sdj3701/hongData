@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		812E481E2A9A0F3B00DF4764 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 812E481D2A9A0F3B00DF4764 /* main.cpp */; };
+		814DE8292AC5793E0092995A /* Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 814DE8272AC5793E0092995A /* Array.cpp */; };
+		814DE82C2AC6AF290092995A /* Polynomial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 814DE82A2AC6AF290092995A /* Polynomial.cpp */; };
+		814DE82F2AC6F3F20092995A /* SparsePolynomial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 814DE82D2AC6F3F20092995A /* SparsePolynomial.cpp */; };
+		814DE8322AC7CB8E0092995A /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 814DE8302AC7CB8E0092995A /* Matrix.cpp */; };
+		814DE8352AC7EF530092995A /* Array2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 814DE8332AC7EF530092995A /* Array2D.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +30,16 @@
 /* Begin PBXFileReference section */
 		812E481A2A9A0F3B00DF4764 /* hongData */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hongData; sourceTree = BUILT_PRODUCTS_DIR; };
 		812E481D2A9A0F3B00DF4764 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		814DE8272AC5793E0092995A /* Array.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Array.cpp; sourceTree = "<group>"; };
+		814DE8282AC5793E0092995A /* Array.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Array.hpp; sourceTree = "<group>"; };
+		814DE82A2AC6AF290092995A /* Polynomial.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Polynomial.cpp; sourceTree = "<group>"; };
+		814DE82B2AC6AF290092995A /* Polynomial.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Polynomial.hpp; sourceTree = "<group>"; };
+		814DE82D2AC6F3F20092995A /* SparsePolynomial.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SparsePolynomial.cpp; sourceTree = "<group>"; };
+		814DE82E2AC6F3F20092995A /* SparsePolynomial.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SparsePolynomial.hpp; sourceTree = "<group>"; };
+		814DE8302AC7CB8E0092995A /* Matrix.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix.cpp; sourceTree = "<group>"; };
+		814DE8312AC7CB8E0092995A /* Matrix.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Matrix.hpp; sourceTree = "<group>"; };
+		814DE8332AC7EF530092995A /* Array2D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Array2D.cpp; sourceTree = "<group>"; };
+		814DE8342AC7EF530092995A /* Array2D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Array2D.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +56,14 @@
 		812E48112A9A0F3B00DF4764 = {
 			isa = PBXGroup;
 			children = (
+				814DE8332AC7EF530092995A /* Array2D.cpp */,
+				814DE8342AC7EF530092995A /* Array2D.hpp */,
+				814DE8302AC7CB8E0092995A /* Matrix.cpp */,
+				814DE8312AC7CB8E0092995A /* Matrix.hpp */,
+				814DE82D2AC6F3F20092995A /* SparsePolynomial.cpp */,
+				814DE82E2AC6F3F20092995A /* SparsePolynomial.hpp */,
+				814DE82A2AC6AF290092995A /* Polynomial.cpp */,
+				814DE82B2AC6AF290092995A /* Polynomial.hpp */,
 				812E481C2A9A0F3B00DF4764 /* hongData */,
 				812E481B2A9A0F3B00DF4764 /* Products */,
 			);
@@ -58,6 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				812E481D2A9A0F3B00DF4764 /* main.cpp */,
+				814DE8272AC5793E0092995A /* Array.cpp */,
+				814DE8282AC5793E0092995A /* Array.hpp */,
 			);
 			path = hongData;
 			sourceTree = "<group>";
@@ -120,6 +145,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				812E481E2A9A0F3B00DF4764 /* main.cpp in Sources */,
+				814DE8292AC5793E0092995A /* Array.cpp in Sources */,
+				814DE82C2AC6AF290092995A /* Polynomial.cpp in Sources */,
+				814DE8352AC7EF530092995A /* Array2D.cpp in Sources */,
+				814DE82F2AC6F3F20092995A /* SparsePolynomial.cpp in Sources */,
+				814DE8322AC7CB8E0092995A /* Matrix.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
